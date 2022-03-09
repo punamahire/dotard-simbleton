@@ -68,25 +68,31 @@ export const listAgentNames = () => {
     );
 }
 
-// Place an article element in your HTML with the class below
-const companySearchResultArticle = document.querySelector(".foundCompanies")
-const allBusinesses = getBusinessData()
-document.querySelector("#companySearch").addEventListener("keypress", keyPressEvent => {
-        if (keyPressEvent.charCode === 13) {
+// Display an input field to search companies 
+export const searchCompanies = () => {
+    const companySearchResultArticle = document.querySelector(".foundCompanies")
+    const allBusinesses = getBusinessData()
+    document.querySelector("#companySearch").addEventListener("keypress", keyPressEvent => {
+            if (keyPressEvent.charCode === 13) {
 
-            const foundBusiness = allBusinesses.find(business => {
-                (business.companyName.includes(keyPressEvent.target.value))
-            })
-            console.log(foundBusiness);
-            companySearchResultArticle.innerHTML = `<h2>${foundBusiness.companyName}</h2>
-                                                    <section>
-                                                        ${foundBusiness.addressFullStreet}
-                                                    </section>
-                                                    <section>
-                                                        ${foundBusiness.addressCity},
-                                                        ${foundBusiness.addressStateCode}
-                                                        ${foundBusiness.addressZipCode}
-                                                    </section>
-                                                `;
-    }
-});
+                console.log(keyPressEvent.target.value);
+                const foundBusiness = allBusinesses.find(business => {
+                return business.companyName.includes(keyPressEvent.target.value)
+                })
+                
+                // Display the company name and address when the user type company name and press return key
+                companySearchResultArticle.innerHTML = `<h2>${foundBusiness.companyName}</h2>
+                                                        <section>
+                                                            ${foundBusiness.addressFullStreet}
+                                                        </section>
+                                                        <section>
+                                                            ${foundBusiness.addressCity},
+                                                            ${foundBusiness.addressStateCode}
+                                                            ${foundBusiness.addressZipCode}
+                                                        </section>
+                                                        <hr>
+                                                    `;
+        }
+    });
+}
+

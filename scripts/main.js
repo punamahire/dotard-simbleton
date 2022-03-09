@@ -1,11 +1,13 @@
-import { businessList, businessListNY, businessListOfManufacturing, listPurchaseAgents, listAgentNames } from "./BusinessList.js"
+import { businessList, businessListNY, businessListOfManufacturing, listPurchaseAgents, listAgentNames, searchCompanies } from "./BusinessList.js"
 
-// businessList()
+businessList()
 
-// businessListNY()
+businessListNY()
 
-// businessListOfManufacturing()
+businessListOfManufacturing()
 
-// listPurchaseAgents()
+listPurchaseAgents()
 
-// listAgentNames()
+listAgentNames()
+
+searchCompanies()
